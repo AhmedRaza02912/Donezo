@@ -1,0 +1,12 @@
+@using System.Drawing
+<div class="card @Color">
+    <h3>@Title</h3>
+    <h2>@Value</h2>
+</div>
+
+@code {
+    [Parameter] public string Title{get;set;}
+    [Parameter] public string Value{get;set;}
+    [Parameter] public string Color{get;set;} ="";
+
+}

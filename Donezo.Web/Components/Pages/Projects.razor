@@ -1,0 +1,46 @@
+@page "/projects"
+@using Donezo.Web.Models
+@using Donezo.Web.Services.Interfaces
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.EntityFrameworkCore
+
+@attribute [Authorize]
+
+@inject IProjectService ProjectService
+
+<h3>Projects</h3>
+<button @onclick="CreateProject">+ New Project</button>
+
+@if(projects ==null){
+    <p>Loading...</p>
+}
+else{
+    <ul>
+        @foreach(var project in projects){
+            <li>
+                <strong>@project.Name</strong>
+                <button @onclick="() => DeleteAsync(project.Id)">Delete</button>
+            </li>
+        }
+    </ul>
+}
+@code{
+    private List<Project?> projects;
+
+    protected override async Task OnInitializedAsync(){
+        projects = await ProjectService.GetAllAsync();
+    }
+    private async Task CreateProject(){
+        var newProject = new Project{
+            Name="New Project",
+            Description = "Sample Project"
+        };
+        await ProjectService.CreatedAsync(newProject);
+        projects = await ProjectService.GetAllAsync();
+    }
+
+    private async Task DeleteAsync(int id){
+        await ProjectService.DeleteAsync(id);
+        projects = await ProjectService.GetAllAsync();
+    }
+}

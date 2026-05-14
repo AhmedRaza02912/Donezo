@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Donezo.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af74f494fe3b05180f9800915338ba64d5fb8444")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3fae59675ec0e2799c0a3954824fd2df5cfd2dd6")]
 [assembly: System.Reflection.AssemblyProductAttribute("Donezo.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Donezo.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
